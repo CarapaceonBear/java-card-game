@@ -3,7 +3,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class CardGame {
+public abstract class CardGame {
 
     private String name;
     String[] suits = {"\u2666", "\u2665", "\u2664", "\u2667"};

@@ -6,7 +6,7 @@ public class Main {
         Player playerOne = new Player();
         Player playerTwo = new Player();
 //        Snap game = new Snap(playerOne, playerTwo);
-        CardGame game = new CardGame("snap");
+        Snap game = new Snap("snap");
         System.out.println(Arrays.toString(game.suits));
         game.shuffleDeck();
         System.out.println(Arrays.toString(game.getDeck()));
