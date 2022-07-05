@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class CardGame {
@@ -36,6 +37,16 @@ public class CardGame {
         Card dealtCard = deck.get(deck.size() - 1);
         deck.remove(dealtCard);
         return dealtCard;
+    }
+
+    public void sortDeckInNumberOrder() {
+        Collections.sort(deck);
+    }
+
+    public void sortDeckIntoSuits() {}
+
+    public void shuffleDeck() {
+        Collections.shuffle(deck);
     }
 
     public void setName(String name) {
