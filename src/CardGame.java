@@ -25,11 +25,17 @@ public class CardGame {
     }
 
     public String[] getDeck() {
-        String[] cardList = new String[52];
-        for (int i = 0; i < 52; i++) {
+        String[] cardList = new String[deck.size()];
+        for (int i = 0; i < deck.size(); i++) {
             cardList[i] = deck.get(i).toString();
         }
         return cardList;
+    }
+
+    public Card dealCard() {
+        Card dealtCard = deck.get(deck.size() - 1);
+        deck.remove(dealtCard);
+        return dealtCard;
     }
 
     public void setName(String name) {
