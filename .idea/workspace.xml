@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="269d766b-5957-4251-a459-cb23d286cad2" name="Changes" comment="dealCard method, getDeck now flexible to size of deck">
+    <list default="true" id="269d766b-5957-4251-a459-cb23d286cad2" name="Changes" comment="shuffle and basic value sort methods">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Card.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CardGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CardGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
@@ -102,7 +101,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657018800974</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="shuffle and basic value sort methods">
+      <created>1657019447440</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1657019447440</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -122,6 +128,7 @@
     <MESSAGE value="card class" />
     <MESSAGE value="cardGame class, createDeck and getDeck methods" />
     <MESSAGE value="dealCard method, getDeck now flexible to size of deck" />
-    <option name="LAST_COMMIT_MESSAGE" value="dealCard method, getDeck now flexible to size of deck" />
+    <MESSAGE value="shuffle and basic value sort methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="shuffle and basic value sort methods" />
   </component>
 </project>

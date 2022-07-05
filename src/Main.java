@@ -7,11 +7,12 @@ public class Main {
         Player playerTwo = new Player();
 //        Snap game = new Snap(playerOne, playerTwo);
         CardGame game = new CardGame("snap");
+        System.out.println(Arrays.toString(game.suits));
         game.shuffleDeck();
         System.out.println(Arrays.toString(game.getDeck()));
         System.out.println(game.dealCard().toString());
         System.out.println(Arrays.toString(game.getDeck()));
-        game.sortDeckInNumberOrder();
+        game.sortDeckIntoSuits();
         System.out.println(Arrays.toString(game.getDeck()));
 
 //        game.runGame();
