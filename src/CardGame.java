@@ -39,6 +39,10 @@ public abstract class CardGame {
     }
 
     public Card dealCard() {
+        if (deck.size() == 0) {
+            createDeck();
+            shuffleDeck();
+        }
         Card dealtCard = deck.get(deck.size() - 1);
         deck.remove(dealtCard);
         return dealtCard;
