@@ -10,9 +10,13 @@ public abstract class CardGame {
     String[] symbols = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
     int[] values = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14};
     List<Card> deck = new ArrayList<>();
+    UserInput user;
+    Player playerOne;
+    Player playerTwo;
 
-    public CardGame(String name) {
+    public CardGame(String name, UserInput user) {
         this.name = name;
+        this.user = user;
         createDeck();
     }
 
@@ -54,5 +58,8 @@ public abstract class CardGame {
 
     public void setName(String name) {
         this.name = name;
+    }
+    public void setUser(UserInput user) {
+        this.user = user;
     }
 }

@@ -37,7 +37,7 @@ public class UserInput {
         boolean isActive = true;
 
         while (isActive) {
-            printMessage(String.format("Enter the %s", prompt));
+            printMessage(prompt);
             String response = scanner.nextLine();
 
             if (!response.equals("")) {
@@ -50,9 +50,14 @@ public class UserInput {
         return input;
     }
 
-//    public boolean getEnterPress() {
-//        while timer
-//          check for enter : return true
-//        if timer expires : return false
-//    }
+    public void getEnterPress() {
+        boolean isActive = true;
+
+        while (isActive) {
+            String response = scanner.nextLine();
+            if (response.equals("")) {
+                isActive = false;
+            }
+        }
+    }
 }
