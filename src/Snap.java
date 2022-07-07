@@ -22,9 +22,21 @@ public class Snap extends CardGame {
     }
 
     public void runGame() {
-        shuffleDeck();
-        currentCard = dealCard();
-        user.printMessage(currentCard.toString());
+        boolean isActive = true;
+        while (isActive) {
+            shuffleDeck();
+            currentCard = dealCard();
+            user.printMessage(currentCard.toString());
+            playGame();
+            user.printMessage(String.format("%s : %d, %s : %d", playerOne.getName(), playerOne.getScore(), playerTwo.getName(), playerTwo.getScore()));
+            String choice = user.getStringInput("Play again? y/n");
+            if (choice.equals("n")) {
+                isActive = false;
+            }
+        }
+    }
+
+    private void playGame() {
         boolean isActive = true;
         int turn = 0;
         while (isActive) {
@@ -44,11 +56,6 @@ public class Snap extends CardGame {
             } else {
                 turn = 0;
             }
-        }
-        user.printMessage(String.format("%s : %d, %s : %d", playerOne.getName(), playerOne.getScore(), playerTwo.getName(), playerTwo.getScore()));
-        String choice = user.getStringInput("Play again? y/n");
-        if (choice.equals("y")) {
-            runGame();
         }
     }
 
