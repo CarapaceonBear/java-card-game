@@ -21,6 +21,7 @@ public class Menu {
                     snap.runGame();
                     break;
                 case 2:
+                    blackJack.setup();
                     blackJack.runGame();
                     break;
                 default:

@@ -8,7 +8,7 @@ public abstract class CardGame {
     private String name;
     String[] suits = {"\u2666", "\u2665", "\u2664", "\u2667"};
     String[] symbols = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
-    int[] values = {2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14};
+    int[] values = {2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11};
     List<Card> deck = new ArrayList<>();
     UserInput user;
     Player playerOne;
