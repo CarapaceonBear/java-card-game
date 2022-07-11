@@ -1,3 +1,4 @@
+import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -49,7 +50,6 @@ public class Snap extends CardGame {
                 isActive = false;
                 timerActive = true;
                 runTimer(turn);
-                parallelToTimer(turn);
             }
             if (turn == 0) {
                 turn = 1;
@@ -62,31 +62,34 @@ public class Snap extends CardGame {
     private void runTimer(int turn) {
         TimerTask task = new TimerTask() {
             public void run() {
-                if (turn == 0) {
-                    playerTwo.incrementScore();
-                    user.printMessage(String.format("%s wins", playerNames[1]));
-                } else {
-                    playerOne.incrementScore();
-                    user.printMessage(String.format("%s wins", playerNames[0]));
-                }
-                timerActive = false;
+            if (turn == 0) {
+                playerTwo.incrementScore();
+                user.printMessage(String.format("%s wins", playerNames[1]));
+            } else {
+                playerOne.incrementScore();
+                user.printMessage(String.format("%s wins", playerNames[0]));
+            }
+            user.setActive(false);
+            timerActive = false;
             }
         };
         Timer timer = new Timer("Timer");
-        long delay = 2000L;
+        long delay = 3000L;
         timer.schedule(task, delay);
-    }
-    private void parallelToTimer(int turn) {
         while (timerActive) {
-            if (user.getStringInput("It's a match!").equals("snap")) {
+            String response = user.getStringInput("It's a match");
+            if (timerActive && response.equals("snap")) {
                 if (turn == 0) {
                     playerOne.incrementScore();
                 } else {
                     playerTwo.incrementScore();
                 }
                 user.printMessage(String.format("%s wins", playerNames[turn]));
+                timerActive = false;
+                timer.cancel();
+            } else {
+                user.printMessage("Too slow!");
             }
         }
     }
-
 }

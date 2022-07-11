@@ -4,6 +4,7 @@ public class UserInput {
 
     private final Scanner scanner = new Scanner(System.in);
     private final String name;
+    private boolean isActive = false;
 
     public UserInput(String name) {
         this.name = name;
@@ -15,7 +16,7 @@ public class UserInput {
 
     public int getIntegerInput(int max) {
         int input = 0;
-        boolean isActive = true;
+        isActive = true;
 
         while (isActive) {
             printMessage(String.format("Enter a number between 1 - %d", max));
@@ -34,7 +35,7 @@ public class UserInput {
 
     public String getStringInput(String prompt) {
         String input = "";
-        boolean isActive = true;
+        isActive = true;
 
         while (isActive) {
             printMessage(prompt);
@@ -51,7 +52,7 @@ public class UserInput {
     }
 
     public void getEnterPress() {
-        boolean isActive = true;
+        isActive = true;
 
         while (isActive) {
             String response = scanner.nextLine();
@@ -59,5 +60,13 @@ public class UserInput {
                 isActive = false;
             }
         }
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
     }
 }

@@ -25,7 +25,6 @@ public class Menu {
                     break;
                 default:
                     isActive = false;
-
             }
         }
     }
