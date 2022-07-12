@@ -1,6 +1,6 @@
 public class Menu {
 
-    private String[] menuOptions = {"play snap", "play blackjack"};
+    private final String[] menuOptions = {"play snap", "play blackjack"};
     UserInput user = new UserInput("user");
     Snap snap = new Snap("snap", user);
     BlackJack blackJack = new BlackJack("blackjack", user);

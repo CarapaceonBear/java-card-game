@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="269d766b-5957-4251-a459-cb23d286cad2" name="Changes" comment="timer is finally working">
+    <list default="true" id="269d766b-5957-4251-a459-cb23d286cad2" name="Changes" comment="simple blackjack game, choice of game on menu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BlackJack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BlackJack.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CardGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CardGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Snap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Snap.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657538584267</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="simple blackjack game, choice of game on menu">
+      <created>1657541544454</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1657541544454</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -195,6 +202,7 @@
     <MESSAGE value="temporary reset when deck is empty and card is drawn" />
     <MESSAGE value="user menu added to choose game" />
     <MESSAGE value="timer is finally working" />
-    <option name="LAST_COMMIT_MESSAGE" value="timer is finally working" />
+    <MESSAGE value="simple blackjack game, choice of game on menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="simple blackjack game, choice of game on menu" />
   </component>
 </project>

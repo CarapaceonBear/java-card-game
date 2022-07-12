@@ -39,12 +39,13 @@ public abstract class CardGame {
     }
 
     public Card dealCard() {
+        Card dealtCard;
         if (deck.size() == 0) {
-            createDeck();
-            shuffleDeck();
+            dealtCard = new Card("empty", "empty", 0);
+        } else {
+            dealtCard = deck.get(deck.size() - 1);
+            deck.remove(dealtCard);
         }
-        Card dealtCard = deck.get(deck.size() - 1);
-        deck.remove(dealtCard);
         return dealtCard;
     }
 

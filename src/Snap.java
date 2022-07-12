@@ -12,7 +12,6 @@ public class Snap extends CardGame {
     public Snap(String name, UserInput user) {
         super.setName(name);
         super.setUser(user);
-        createDeck();
     }
 
     public void setup() {
@@ -25,6 +24,7 @@ public class Snap extends CardGame {
     public void runGame() {
         boolean isActive = true;
         while (isActive) {
+            createDeck();
             shuffleDeck();
             currentCard = dealCard();
             user.printMessage(currentCard.toString());
@@ -45,6 +45,10 @@ public class Snap extends CardGame {
             user.printMessage(String.format("%s's turn, press enter to draw a card", playerNames[turn]));
             user.getEnterPress();
             currentCard = dealCard();
+            if (currentCard.getValue() == 0) {
+                user.printMessage("The deck is finished");
+                return;
+            }
             user.printMessage(currentCard.toString());
             if (currentCard.getSymbol().equals(previousCard.getSymbol())) {
                 isActive = false;
