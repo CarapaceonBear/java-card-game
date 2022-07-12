@@ -1,5 +1,17 @@
 # Java Card Game
 
+## Task
+
+To create a simple command-line card game in Java.
+
+The user can select to play snap or blackjack
+
+
+## Component Tree
+
+![tree](https://i.imgur.com/Pmia8ht.png)
+
+
 ## PsuedoCode
 
 ### Card
