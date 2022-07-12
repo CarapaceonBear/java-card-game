@@ -3,11 +3,10 @@ import java.util.List;
 
 public class BlackJack extends CardGame {
 
-    List<Card> playerCards = new ArrayList<>();
-    List<Card> dealerCards = new ArrayList<>();
+    private final List<Card> playerCards = new ArrayList<>();
+    private final List<Card> dealerCards = new ArrayList<>();
 
-    public BlackJack(String name, UserInput user) {
-        super.setName(name);
+    public BlackJack(UserInput user) {
         super.setUser(user);
         createDeck();
     }
@@ -25,7 +24,7 @@ public class BlackJack extends CardGame {
             playerCards.add(dealCard());
             user.printMessage(String.format("Player's card : %s", playerCards.get(0).toString()));
 
-            playGame();
+            playRound();
 
             String choice = user.getStringInput("Play again? y/n");
             if (choice.equals("n")) {
@@ -36,7 +35,7 @@ public class BlackJack extends CardGame {
         }
     }
 
-    private void playGame() {
+    private void playRound() {
         boolean isActive = true;
         while (isActive) {
             printOptions();
@@ -44,37 +43,10 @@ public class BlackJack extends CardGame {
             int total = 0;
             switch (choice) {
                 case 1:
-                    playerCards.add(dealCard());
-                    user.printMessage("Your hand:");
-                    for (Card card : playerCards) {
-                        user.printMessage(card.toString());
-                        total += card.getValue();
-                    }
-                    if ( total > 21) {
-                        user.printMessage("Your total exceeds 21, you lose");
-                        isActive = false;
-                    }
+                    isActive = hit(total);
                     break;
                 case 2:
-                    for (Card card : playerCards) {
-                        user.printMessage(card.toString());
-                        total += card.getValue();
-                    }
-                    user.printMessage(String.format("Your total : %d", total));
-                    int dealerTotal = dealerCards.get(0).getValue();
-                    while (dealerTotal <= 17) {
-                        dealerCards.add(dealCard());
-                        dealerTotal += dealerCards.get(dealerCards.size() - 1).getValue();
-                    }
-                    user.printMessage("Dealer's hand:");
-                    for (Card card : dealerCards) {
-                        user.printMessage(card.toString());
-                    }
-                    if ((dealerTotal <= 21) && (dealerTotal >= total))  {
-                        user.printMessage("Dealer wins");
-                    } else {
-                        user.printMessage("You win");
-                    }
+                    stand(total);
                     isActive = false;
                     break;
                 case 3:
@@ -85,13 +57,49 @@ public class BlackJack extends CardGame {
         }
     }
 
-    public void printOptions() {
+    private boolean hit(int total) {
+        playerCards.add(dealCard());
+        user.printMessage("Your hand:");
+        for (Card card : playerCards) {
+            user.printMessage(card.toString());
+            total += card.getValue();
+        }
+        if ( total > 21) {
+            user.printMessage("Your total exceeds 21, you lose");
+            return false;
+        }
+        return true;
+    }
+
+    private void stand(int total) {
+        for (Card card : playerCards) {
+            user.printMessage(card.toString());
+            total += card.getValue();
+        }
+        user.printMessage(String.format("Your total : %d", total));
+        int dealerTotal = dealerCards.get(0).getValue();
+        while (dealerTotal <= 17) {
+            dealerCards.add(dealCard());
+            dealerTotal += dealerCards.get(dealerCards.size() - 1).getValue();
+        }
+        user.printMessage("Dealer's hand:");
+        for (Card card : dealerCards) {
+            user.printMessage(card.toString());
+        }
+        if ((dealerTotal <= 21) && (dealerTotal >= total))  {
+            user.printMessage("Dealer wins");
+        } else {
+            user.printMessage("You win");
+        }
+    }
+
+    private void printOptions() {
         user.printMessage("1 - hit");
         user.printMessage("2 - stand");
         user.printMessage("3 - surrender");
     }
 
-    public void reset() {
+    private void reset() {
         playerCards.clear();
         dealerCards.clear();
         deck.clear();

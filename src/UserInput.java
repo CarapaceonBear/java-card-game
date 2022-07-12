@@ -3,12 +3,9 @@ import java.util.Scanner;
 public class UserInput {
 
     private final Scanner scanner = new Scanner(System.in);
-    private final String name;
     private boolean isActive = false;
 
-    public UserInput(String name) {
-        this.name = name;
-    }
+    public UserInput() {}
 
     public void printMessage(String message) {
         System.out.println(message);
@@ -60,10 +57,6 @@ public class UserInput {
                 isActive = false;
             }
         }
-    }
-
-    public boolean isActive() {
-        return isActive;
     }
 
     public void setActive(boolean active) {

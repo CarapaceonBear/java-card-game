@@ -1,16 +1,13 @@
-import java.util.Scanner;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class Snap extends CardGame {
 
-    String[] playerNames = new String[2];
-    Card previousCard;
-    Card currentCard;
-    boolean timerActive;
+    private final String[] playerNames = new String[2];
+    private Card currentCard;
+    private boolean timerActive;
 
-    public Snap(String name, UserInput user) {
-        super.setName(name);
+    public Snap(UserInput user) {
         super.setUser(user);
     }
 
@@ -28,7 +25,7 @@ public class Snap extends CardGame {
             shuffleDeck();
             currentCard = dealCard();
             user.printMessage(currentCard.toString());
-            playGame();
+            playRound();
             user.printMessage(String.format("%s : %d, %s : %d", playerOne.getName(), playerOne.getScore(), playerTwo.getName(), playerTwo.getScore()));
             String choice = user.getStringInput("Play again? y/n");
             if (choice.equals("n")) {
@@ -37,11 +34,11 @@ public class Snap extends CardGame {
         }
     }
 
-    private void playGame() {
+    private void playRound() {
         boolean isActive = true;
         int turn = 0;
         while (isActive) {
-            previousCard = currentCard;
+            Card previousCard = currentCard;
             user.printMessage(String.format("%s's turn, press enter to draw a card", playerNames[turn]));
             user.getEnterPress();
             currentCard = dealCard();
@@ -55,11 +52,7 @@ public class Snap extends CardGame {
                 timerActive = true;
                 runTimer(turn);
             }
-            if (turn == 0) {
-                turn = 1;
-            } else {
-                turn = 0;
-            }
+            turn = (turn == 0) ? 1 : 0;
         }
     }
 
@@ -78,8 +71,7 @@ public class Snap extends CardGame {
             }
         };
         Timer timer = new Timer("Timer");
-        long delay = 3000L;
-        timer.schedule(task, delay);
+        timer.schedule(task, 2500L);
         while (timerActive) {
             String response = user.getStringInput("It's a match");
             if (timerActive && response.equals("snap")) {
